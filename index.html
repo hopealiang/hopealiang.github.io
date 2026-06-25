@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perseus101-UltraHD | Operations & Program Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:       #0D9488;
+      --teal-light: #CCFBF1;
+      --teal-dark:  #0F766E;
+      --teal-mid:   #14B8A6;
+      --white:      #FFFFFF;
+      --off-white:  #F0FDFA;
+      --text:       #134E4A;
+      --text-soft:  #4B7B77;
+      --border:     #99F6E4;
+      --shadow:     rgba(13, 148, 136, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2.5rem;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--teal);
+      letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--off-white) 0%, var(--teal-light) 100%);
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(13,148,136,0.08) 0%, transparent 70%);
+      top: -100px; right: -100px;
+    }
+    .hero-inner { max-width: 720px; position: relative; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-light);
+      border: 1px solid var(--border);
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span { color: var(--teal); }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-soft);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      font-weight: 300;
+    }
+    .hero-cta {
+      display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+      box-shadow: 0 4px 14px var(--shadow);
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--teal);
+      border: 1.5px solid var(--teal);
+    }
+    .btn-outline:hover { background: var(--teal-light); }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 960px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      color: var(--text);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .section-intro {
+      font-size: 1rem;
+      color: var(--text-soft);
+      max-width: 600px;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    /* ABOUT */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .stat-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--teal);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      font-weight: 500;
+    }
+
+    /* SKILLS */
+    #skills { background: var(--off-white); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .skill-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .skill-card:hover { box-shadow: 0 8px 24px var(--shadow); transform: translateY(-2px); }
+    .skill-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .skill-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+    .skill-desc { font-size: 0.85rem; color: var(--text-soft); line-height: 1.6; }
+
+    /* EXPERIENCE */
+    #experience { background: var(--white); }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--teal), var(--border));
+      border-radius: 2px;
+    }
+    .timeline-item { position: relative; margin-bottom: 2.5rem; }
+    .timeline-dot {
+      position: absolute;
+      left: -2.45rem; top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--teal);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 3px var(--teal-light);
+    }
+    .timeline-period {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+    .timeline-role {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+    .timeline-company {
+      font-size: 0.875rem;
+      color: var(--text-soft);
+      margin-bottom: 0.75rem;
+    }
+    .timeline-points { list-style: none; }
+    .timeline-points li {
+      font-size: 0.875rem;
+      color: var(--text-soft);
+      padding: 0.2rem 0 0.2rem 1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .timeline-points li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--teal-mid);
+      font-size: 0.8rem;
+    }
+
+    /* PROCESS */
+    #process { background: var(--off-white); }
+    .process-diagram {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-top: 1rem;
+    }
+    .process-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .process-step {
+      background: var(--off-white);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 0.875rem 1.25rem;
+      text-align: center;
+      min-width: 120px;
+    }
+    .process-step.highlight {
+      background: var(--off-white);
+      border-color: var(--border);
+    }
+    .step-icon { font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .step-name { font-size: 0.8rem; font-weight: 600; color: var(--text); }
+    .step-label { font-size: 0.7rem; color: var(--text-soft); }
+    .process-arrow { font-size: 1.25rem; color: var(--teal-mid); flex-shrink: 0; }
+    .process-outcomes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.75rem;
+    }
+    .outcome {
+      text-align: center;
+      padding: 0.75rem;
+    }
+    .outcome-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+    .outcome-text { font-size: 0.8rem; font-weight: 500; color: var(--text-soft); }
+
+    /* AI */
+    #ai { background: var(--white); }
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .ai-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      background: var(--off-white);
+      transition: box-shadow 0.2s;
+    }
+    .ai-card:hover { box-shadow: 0 6px 20px var(--shadow); }
+    .ai-card-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+    .ai-card-title { font-weight: 600; font-size: 0.9rem; color: var(--text); margin-bottom: 0.3rem; }
+    .ai-card-desc { font-size: 0.82rem; color: var(--text-soft); line-height: 1.6; }
+
+    /* LEARNING & HOBBIES */
+    #life { background: var(--off-white); }
+    .life-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .life-block h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .tag {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.82rem;
+      color: var(--teal-dark);
+      font-weight: 500;
+    }
+
+    /* CONTACT */
+    #contact {
+      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+      color: var(--white);
+      text-align: center;
+    }
+    #contact .section-label { color: var(--teal-light); }
+    #contact .section-title { color: var(--white); }
+    #contact .section-intro { color: rgba(255,255,255,0.75); margin: 0 auto 2rem; }
+    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .contact-link:hover { background: rgba(255,255,255,0.22); }
+
+    /* FOOTER */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .about-grid, .life-grid { grid-template-columns: 1fr; }
+      .process-flow { gap: 0.35rem; }
+      .process-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">Perseus101-UltraHD</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#ai">AI Tools</a></li>
+      <li><a href="#life">Life</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Operations & Program Management</span>
+      <h1>Turning complexity into <span>clarity</span>.</h1>
+      <p class="hero-sub">8+ years building efficient systems, managing cross-functional programs, and using every tool available — including AI — to deliver better outcomes.</p>
+      <div class="hero-cta">
+        <a href="#about" class="btn btn-primary">Learn more about me</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">Who I am</p>
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm an operations and program management professional with a track record of building structure where there wasn't any — from calibration programs and procurement workflows to client pipelines and process documentation.</p>
+          <p>I thrive in environments where things need to be organized, tracked, and improved. Whether I'm managing assets, coordinating stakeholders, or streamlining a process, I bring both the systems mindset and the follow-through to make it stick.</p>
+          <p>Currently pursuing a BS in Business Administration with a concentration in Management Information Systems at SNHU, and actively building new technical skills — including GitHub, AI tools, and workflow automation.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-number">8+</span>
+            <span class="stat-label">Years of experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">425+</span>
+            <span class="stat-label">Assets managed</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">LSS</span>
+            <span class="stat-label">Green Belt certified</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">MIS</span>
+            <span class="stat-label">BS in progress @ SNHU</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">What I bring</p>
+      <h2 class="section-title">Core Skills</h2>
+      <p class="section-intro">A cross-industry toolkit built across operations, program management, and business development.</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">📋</div>
+          <div class="skill-title">Program & Project Management</div>
+          <div class="skill-desc">End-to-end program ownership, cross-functional coordination, stakeholder communication, and milestone tracking.</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">⚙️</div>
+          <div class="skill-title">Process Improvement</div>
+          <div class="skill-desc">Lean Six Sigma Green Belt. Identifying inefficiencies, building scalable systems, and documenting repeatable workflows.</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🗄️</div>
+          <div class="skill-title">ERP & PLM Systems</div>
+          <div class="skill-desc">SAP for procurement and purchasing. Arena PLM for document control and change management in regulated environments.</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">📊</div>
+          <div class="skill-title">Data Tracking & Reporting</div>
+          <div class="skill-desc">Asset management, calibration scheduling, compliance tracking, and building dashboards and reports from scratch.</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🤝</div>
+          <div class="skill-title">Vendor & Supplier Coordination</div>
+          <div class="skill-desc">Managing vendor agreements, coordinating service providers, and maintaining supplier relationships across domestic operations.</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">📈</div>
+          <div class="skill-title">CRM & Business Development</div>
+          <div class="skill-desc">ActiveCampaign CRM, client pipeline management, and supporting business development in a technical services environment.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">Where I've been</p>
+      <h2 class="section-title">Experience</h2>
+      <p class="section-intro">Operations and program management across regulated R&D environments and technical services.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">2021 – 2026</div>
+          <div class="timeline-role">R&D Laboratory Coordinator — Systems & Operations Lead</div>
+          <div class="timeline-company">Align Technology</div>
+          <ul class="timeline-points">
+            <li>Owned and managed a calibration program covering 425+ equipment assets</li>
+            <li>Handled procurement and purchasing through SAP in a regulated R&D environment</li>
+            <li>Applied Lean Six Sigma principles to drive process improvements across lab operations</li>
+            <li>Coordinated cross-functional stakeholders including engineering, quality, and external vendors</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">Prior</div>
+          <div class="timeline-role">Executive Assistant & Business Development Support</div>
+          <div class="timeline-company">Alliance Technologies</div>
+          <ul class="timeline-points">
+            <li>Managed client pipeline and lead tracking using ActiveCampaign CRM</li>
+            <li>Supported business development efforts for a chemical and materials testing lab</li>
+            <li>Provided executive-level administrative support to senior leadership</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <p class="section-label">How I think</p>
+      <h2 class="section-title">Process Optimization</h2>
+      <p class="section-intro">I approach every operational challenge the same way — understand the current state, identify the gaps, and build something better.</p>
+      <div class="process-diagram">
+        <div class="process-flow">
+          <div class="process-step">
+            <div class="step-icon">🔍</div>
+            <div class="step-name">Assess</div>
+            <div class="step-label">Current state</div>
+          </div>
+          <div class="process-arrow">→</div>
+          <div class="process-step">
+            <div class="step-icon">📌</div>
+            <div class="step-name">Identify</div>
+            <div class="step-label">Pain points</div>
+          </div>
+          <div class="process-arrow">→</div>
+          <div class="process-step highlight">
+            <div class="step-icon">🛠️</div>
+            <div class="step-name">Design</div>
+            <div class="step-label">New workflow</div>
+          </div>
+          <div class="process-arrow">→</div>
+          <div class="process-step">
+            <div class="step-icon">🚀</div>
+            <div class="step-name">Implement</div>
+            <div class="step-label">& document</div>
+          </div>
+          <div class="process-arrow">→</div>
+          <div class="process-step">
+            <div class="step-icon">📊</div>
+            <div class="step-name">Measure</div>
+            <div class="step-label">& improve</div>
+          </div>
+        </div>
+        <div class="process-outcomes">
+          <div class="outcome">
+            <div class="outcome-icon">⏱️</div>
+            <div class="outcome-text">Reduced cycle times</div>
+          </div>
+          <div class="outcome">
+            <div class="outcome-icon">✅</div>
+            <div class="outcome-text">Improved compliance</div>
+          </div>
+          <div class="outcome">
+            <div class="outcome-icon">📁</div>
+            <div class="outcome-text">Better documentation</div>
+          </div>
+          <div class="outcome">
+            <div class="outcome-icon">🤝</div>
+            <div class="outcome-text">Clearer accountability</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI -->
+  <section id="ai">
+    <div class="container">
+      <p class="section-label">Working smarter</p>
+      <h2 class="section-title">AI as a Tool</h2>
+      <p class="section-intro">I actively use AI to move faster, think more clearly, and produce better work — not to replace judgment, but to sharpen it.</p>
+      <div class="ai-grid">
+        <div class="ai-card">
+          <div class="ai-card-icon">✍️</div>
+          <div class="ai-card-title">Communications & Documents</div>
+          <div class="ai-card-desc">Fine-tuning communications and documents using AI for clarity, tone, and accuracy — plus exploring AI-driven automation for document storage and organization.</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🧠</div>
+          <div class="ai-card-title">Brainstorming</div>
+          <div class="ai-card-desc">Generating ideas, exploring angles, and stress-testing plans before committing to a direction.</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">📚</div>
+          <div class="ai-card-title">Learning New Skills</div>
+          <div class="ai-card-desc">Using AI as a tutor — including learning GitHub, understanding code, and picking up new technical concepts quickly.</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🔎</div>
+          <div class="ai-card-title">Research & Analysis</div>
+          <div class="ai-card-desc">Summarizing information, comparing options, and getting up to speed on unfamiliar topics faster than ever before.</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">⚡</div>
+          <div class="ai-card-title">Workflow Automation</div>
+          <div class="ai-card-desc">Exploring how AI tools can automate repetitive tasks and build smarter, faster operational workflows.</div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-icon">🗂️</div>
+          <div class="ai-card-title">Organizing Information</div>
+          <div class="ai-card-desc">Structuring complex information into clear formats — summaries, trackers, outlines — so nothing falls through the cracks.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFE -->
+  <section id="life">
+    <div class="container">
+      <p class="section-label">Beyond the resume</p>
+      <h2 class="section-title">Life Outside Work</h2>
+      <p class="section-intro">I believe the best professionals are curious people. Here's what keeps me curious.</p>
+      <div class="life-grid">
+        <div class="life-block">
+          <h3>Currently Learning 🌱</h3>
+          <div class="tag-list">
+            <span class="tag">GitHub & version control</span>
+            <span class="tag">Workflow automation</span>
+            <span class="tag">Shore crab fishing 🦀</span>
+            <span class="tag">AI tools & prompting</span>
+            <span class="tag">Web development basics</span>
+            <span class="tag">Business Information Systems</span>
+          </div>
+        </div>
+        <div class="life-block">
+          <h3>Hobbies & Interests 🌿</h3>
+          <div class="tag-list">
+            <span class="tag">Hiking 🥾</span>
+            <span class="tag">Brainstorming & ideation</span>
+            <span class="tag">Exploring the Bay Area</span>
+            <span class="tag">Learning new skills</span>
+            <span class="tag">Creative problem solving</span>
+            <span class="tag">Nature & the outdoors</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Let's connect</p>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-intro">Open to new opportunities across operations, program management, and beyond. Let's talk.</p>
+      <div class="contact-links">
+        <a href="https://github.com/Perseus101-UltraHD" target="_blank" class="contact-link">
+          🐙 GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/" target="_blank" class="contact-link">
+          💼 LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Perseus101-UltraHD · Built with GitHub Pages</p>
+  </footer>
+
+</body>
+</html>
