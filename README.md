@@ -44,9 +44,9 @@ I thrive where things need to be organized, tracked, and improved — and I brin
 
 ## ⚙️ Process Optimization Approach
 
-```
+
 ![DMAIC Process Flow](./dmaic-flow.svg)
-```
+
 
 **Outcomes I drive:**
 - ⏱️ Reduced cycle times
