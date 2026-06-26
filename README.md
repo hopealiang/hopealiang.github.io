@@ -45,9 +45,7 @@ I thrive where things need to be organized, tracked, and improved — and I brin
 ## ⚙️ Process Optimization Approach
 
 ```
-🔍 Assess  →  📌 Identify  →  🛠️ Design  →  🚀 Implement  →  📊 Measure
- Current        Pain           New            & Document       & Improve
-  State         Points        Workflow
+![DMAIC Process Flow](./dmaic-flow.svg)
 ```
 
 **Outcomes I drive:**
