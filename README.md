@@ -35,13 +35,10 @@ I thrive where things need to be organized, tracked, and improved — and I brin
 | I Have | I'm Learning | In the Memory Banks |
 |--------|-------------|-------------------|
 | ![SAP](https://img.shields.io/badge/SAP-0FAAFF?style=flat&logo=sap&logoColor=white) | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white) | ![Arena PLM](https://img.shields.io/badge/Arena_PLM-FF6B35?style=flat&logoColor=white) |
-| ![Microsoft Office](https://img.shields.io/badge/Microsoft_Office-D83B01?style=flat&logo=microsoft-office&logoColor=white) | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) | ![ActiveCampaign](https://img.shields.io/badge/ActiveCampaign-009CE0?style=flat&logoColor=white) |![Microsoft Access](https://img.shields.io/badge/Microsoft_Access-A4373A?style=flat&logo=microsoft-access&logoColor=white) |
-| ![Google Workspace](https://img.shields.io/badge/Google_Workspace-4285F4?style=flat&logo=google&logoColor=white) |
-| ![Zapier](https://img.shields.io/badge/Zapier-FF4A00?style=flat&logo=zapier&logoColor=white) |
-| ![Excel](https://img.shields.io/badge/Excel-217346?style=flat&logo=microsoft-excel&logoColor=white) | ![Markdown](https://img.shields.io/badge/Markdown-000000?style=flat&logo=markdown&logoColor=white) | |
-| ![SharePoint](https://img.shields.io/badge/SharePoint-0078D4?style=flat&logo=microsoft-sharepoint&logoColor=white) | ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white) | |
-| ![Claude AI](https://img.shields.io/badge/Claude_AI-CC785C?style=flat&logoColor=white) | ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white) | |
-
+| ![Microsoft Office](https://img.shields.io/badge/Microsoft_Office-D83B01?style=flat&logo=microsoft-office&logoColor=white) | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) | ![ActiveCampaign](https://img.shields.io/badge/ActiveCampaign-009CE0?style=flat&logoColor=white) |
+| ![Excel](https://img.shields.io/badge/Excel-217346?style=flat&logo=microsoft-excel&logoColor=white) | ![Markdown](https://img.shields.io/badge/Markdown-000000?style=flat&logo=markdown&logoColor=white) | ![Microsoft Access](https://img.shields.io/badge/Microsoft_Access-A4373A?style=flat&logo=microsoft-access&logoColor=white) |
+| ![SharePoint](https://img.shields.io/badge/SharePoint-0078D4?style=flat&logo=microsoft-sharepoint&logoColor=white) | ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white) | ![Google Workspace](https://img.shields.io/badge/Google_Workspace-4285F4?style=flat&logo=google&logoColor=white) |
+| ![Claude AI](https://img.shields.io/badge/Claude_AI-CC785C?style=flat&logoColor=white) | ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white) | ![Zapier](https://img.shields.io/badge/Zapier-FF4A00?style=flat&logo=zapier&logoColor=white) |
 ---
 
 ## ⚙️ Process Optimization Approach
