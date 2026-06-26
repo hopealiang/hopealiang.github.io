@@ -1,5 +1,5 @@
 <!-- Header -->
-![header](https://capsule-render.vercel.app/api?type=waving&color=0D9488&height=120&section=header&text=Hope%20Liang&fontSize=40&fontColor=ffffff&animation=fadeIn)
+![header](https://capsule-render.vercel.app/api?type=waving&color=0D9488&height=120&section=header&fontSize=40&fontColor=ffffff&animation=fadeIn)
 <div align="center">
 
 # Hi, I'm Hope Liang 👋
@@ -90,7 +90,6 @@ I actively use AI to work smarter — not to replace judgment, but to sharpen it
 ## 🌿 My Down Time
 
 ![Hiking](https://img.shields.io/badge/Hiking_🥾-2E7D32?style=for-the-badge)
-![Crab Fishing](https://img.shields.io/badge/Shore_Crab_Fishing_🦀-0277BD?style=for-the-badge) <img src="https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif" width="40" alt="walking crab" />
 ![Brainstorming](https://img.shields.io/badge/Brainstorming_💡-F57F17?style=for-the-badge)
 ![Writing](https://img.shields.io/badge/Writing_📖_The_Night_Terror-6A1B9A?style=for-the-badge)
 ![Learning](https://img.shields.io/badge/Always_Learning_🌱-0D9488?style=for-the-badge)
