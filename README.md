@@ -32,6 +32,7 @@ I thrive where things need to be organized, tracked, and improved — and I brin
 
 ## 🛠️ Skills & Tools
 
+
 | I Have | I'm Learning | In the Memory Banks |
 |--------|-------------|-------------------|
 | ![SAP](https://img.shields.io/badge/SAP-0FAAFF?style=flat&logo=sap&logoColor=white) | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white) | ![Arena PLM](https://img.shields.io/badge/Arena_PLM-FF6B35?style=flat&logoColor=white) |
